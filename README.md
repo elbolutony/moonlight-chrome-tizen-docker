@@ -1,11 +1,5 @@
-# Moonlight for Tizen - Dockerfile template
-An easy method for building Moonlight for Samsung TV
-
-## Credits
-- Moonlight developers: https://moonlight-stream.org
-- Samsung developers: https://github.com/SamsungDForum/moonlight-chrome
-- This Dockerfile and support files have been adapted from [jellyfin-docker-tizen](https://github.com/babagreensheep/jellyfin-tizen-docker)
-- Dockerfile readapted for my repository tizen from [pablojrl123](https://github.com/pablojrl123/moonlight-tizen-docker)
+# About
+The only method for building Moonlight for Tizen OS (Samsung Smart TV's)
 
 ## Usage
 1. Enable developer mode on the TV (more information on [official Samsung guide](https://developer.samsung.com/smarttv/develop/getting-started/using-sdk/tv-device.html)):
@@ -17,14 +11,13 @@ An easy method for building Moonlight for Samsung TV
    
 2. Build the application within a Docker image:
 	```
-	docker build -t moonlight-tizen .
+	docker build -t moonlight-tizen . --no-cache
 	```
 	This will take a while.
 
  	> Note: If you are running Docker on a Mac with a silicon chip (M1/M2 etc), change the first line in `Dockerfile` to  
 	> `FROM --platform=linux/amd64 ubuntu:22.04` before building to ensure compability.
-
-4. Deploy the application to the TV:
+3. Deploy the application to the TV:
 	- Run and enter a container; the container will be removed automatically on exit:
 	 ```
 	 docker run -it --rm moonlight-tizen
@@ -40,7 +33,7 @@ An easy method for building Moonlight for Samsung TV
 	 The device ID will be the last column, something like `UE65NU7400`.
 	- Install the package:
 	 ```sh
-	 tizen install -n MoonlightWasm.wgt -t DEVICE_ID
+	 tizen install -n Moonlight.wgt -t DEVICE_ID
 	 ```
 	 Moonlight should now appear in your Recent Apps - or similar page - on your TV.
 	- Exit the container:
@@ -51,3 +44,10 @@ An easy method for building Moonlight for Samsung TV
 	 ```sh
 	 docker image rm moonlight-tizen
 	 ```
+
+## Credits
+- Moonlight for Chrome OS is developed and maintained by [Moonlight Developers](https://github.com/moonlight-stream/moonlight-chrome)
+- Moonlight for Tizen is based on Chrome OS version which was then adapted and powered by [Samsung Developers](https://github.com/SamsungDForum/moonlight-chrome)
+- Support files and Dockerfile have been adapted by [jellyfin](https://github.com/jellyfin/jellyfin-tizen) and [babagreensheep](https://github.com/babagreensheep/jellyfin-tizen-docker)
+- Dockerfile have been readapted by [pablojrl123](https://github.com/pablojrl123/moonlight-tizen-docker)
+- Content files and Dockerfile have been readapted by [KyroFrCode](https://github.com/KyroFrCode/moonlight-chrome-tizen) & [KyroFrCode](https://github.com/KyroFrCode/moonlight-chrome-tizen-docker)
