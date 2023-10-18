@@ -1,5 +1,5 @@
 ## About
-[Moonlight for Tizen](https://moonlight-stream.org) is an open source client for NVIDIA GameStream and [Sunshine](https://github.com/LizardByte/Sunshine).
+[Moonlight for Tizen](https://github.com/ndriqimlahu/moonlight-chrome-tizen) is an open source client for NVIDIA GameStream and [Sunshine](https://github.com/LizardByte/Sunshine).
 
 Moonlight for Tizen allows you to stream your full collection of games from your powerful desktop to your Samsung Smart TV running Tizen OS.
 
@@ -7,7 +7,7 @@ Check out the [Moonlight wiki](https://github.com/moonlight-stream/moonlight-doc
 
 ## Getting Started
 
-Starting with the project, you should first take a look at the required [Prerequisites](https://github.com/ndriqimlahu/moonlight-chrome-tizen/edit/samsung_wasm/README.md#prerequisites) and then follow the [Building](https://github.com/ndriqimlahu/moonlight-chrome-tizen/edit/samsung_wasm/README.md#building) instructions in order to successfully install Moonlight on your Samsung Smart TV which has Tizen OS.
+Starting with the project, you should first take a look at the required [Prerequisites](https://github.com/ndriqimlahu/moonlight-chrome-tizen-docker#prerequisites) and then follow the [Building](https://github.com/ndriqimlahu/moonlight-chrome-tizen-docker#building) instructions in order to successfully install Moonlight on your Samsung Smart TV which has Tizen OS.
 
 ### Prerequisites
 
@@ -16,7 +16,7 @@ Before building this application, you must have [Windows Subsystem for Linux (WS
 Also, you should run "Docker Desktop" before proceeding further and it is also recommended to close any software or application that requires high CPU and memory resources, because Docker Desktop will take high resources during use.
 
 ### Building
-1. Download the [Dockerfile](https://github.com/ndriqimlahu/moonlight-chrome-tizen-docker) and save it in the `Downloads` folder, then you should remove any extensions from the `Dockerfile` and just leave it without extensions.
+1. Download the [Dockerfile](https://github.com/ndriqimlahu/moonlight-chrome-tizen-docker/blob/main/Dockerfile) and save it in the `Downloads` folder, then you should remove any extensions from the `Dockerfile` and just leave it without extensions.
 2. Open `Windows PowerShell` or a similar program depending on your OS, then change directory to where you downloaded the "Dockerfile", so for example if you downloaded the file in the "Downloads" folder, then you should enter the following command to go on that path.
 	```
 	cd .\Downloads\
@@ -71,7 +71,7 @@ Also, you should run "Docker Desktop" before proceeding further and it is also r
 ### Updating
 
 1. Before updating the Moonlight app, you must delete the installed Moonlight app that you already have on your Samsung Smart TV to prevent errors during the update.
-2. Now, whenever you want to install an updated version of Moonlight on your Samsung Smart TV, you need to follow the [Building](https://github.com/ndriqimlahu/moonlight-chrome-tizen/edit/samsung_wasm/README.md#building) instructions in order to successfully update Moonlight on your Samsung Smart TV which has Tizen OS.
+2. Now, whenever you want to install an updated version of Moonlight on your Samsung Smart TV, you need to follow the [Building](https://github.com/ndriqimlahu/moonlight-chrome-tizen-docker#building) instructions in order to successfully update Moonlight on your Samsung Smart TV which has Tizen OS.
 
 ## Changelogs
 
