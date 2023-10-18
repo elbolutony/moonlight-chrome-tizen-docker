@@ -7,51 +7,53 @@ Check out the [Moonlight wiki](https://github.com/moonlight-stream/moonlight-doc
 
 ## Getting Started
 
-Starting with the project, you should first take a look at the required [Prerequisites](https://github.com/ndriqimlahu/moonlight-chrome-tizen-docker#prerequisites) and then follow the [Building](https://github.com/ndriqimlahu/moonlight-chrome-tizen-docker#building) instructions in order to successfully install Moonlight on your Samsung Smart TV which has Tizen OS.
+Starting with the project, you should first take a look at the required [Prerequisites](https://github.com/ndriqimlahu/moonlight-chrome-tizen-docker#prerequisites) and then follow the [Installation](https://github.com/ndriqimlahu/moonlight-chrome-tizen-docker#installation) instructions in order to successfully install Moonlight on your Samsung Smart TV.
 
 ### Prerequisites
 
 Before building this application, you must have [Windows Subsystem for Linux (WSL 2)](https://learn.microsoft.com/en-us/windows/wsl/install-manual) and [Docker Desktop](https://docs.docker.com/desktop/) installed on your computer.
 
-Also, you should run "Docker Desktop" before proceeding further and it is also recommended to close any software or application that requires high CPU and memory resources, because Docker Desktop will take high resources during use.
+Also, you should run "Docker Desktop" before proceeding further and it is also recommended to close any software or application that requires high CPU and memory resources, because "Docker Desktop" will take high resources during use.
 
-### Building
-1. Download the [Dockerfile](https://github.com/ndriqimlahu/moonlight-chrome-tizen-docker/blob/main/Dockerfile) and save it in the `Downloads` folder, then you should remove any extensions from the `Dockerfile` and just leave it without extensions.
-2. Open `Windows PowerShell` or a similar program depending on your OS, then change directory to where you downloaded the "Dockerfile", so for example if you downloaded the file in the "Downloads" folder, then you should enter the following command to go on that path.
+### Installation
+1. Download the [Dockerfile](https://github.com/ndriqimlahu/moonlight-chrome-tizen-docker/blob/main/Dockerfile) and save it in the "Downloads" folder, then you should remove any extensions from the `Dockerfile` and just leave it without extensions.
+2. Open `Windows PowerShell` or a similar program depending on your OS, then change directory to where you downloaded the `Dockerfile`, so for example if you downloaded the file in the "Downloads" folder, then you should enter the following command to go on that path.
 	```
 	cd .\Downloads\
 	```
 3. Enable the "Developer mode" in your "Samsung Smart TV" (If you need more detailed instructions, see the official [Samsung guide](https://developer.samsung.com/smarttv/develop/getting-started/using-sdk/tv-device.html)):
 	- Go to the `Apps` panel.
 	- Press `12345` on the remote and a dialog should popup.
-	- Set `Developer mode` to `On` and fill in the `Host PC IP` field which is the IP Address of your PC where the "Docker" host is currently running, then click the `OK` button to close the dialog.
+	- Set `Developer mode` to `On` and fill in the `Host PC IP` field which is the `IP Address` of your PC, then click the `OK` button to close the dialog.
 	- Restart the TV by holding the power button for 2 seconds as instructed by the new dialog popup, then again go to the `Apps` panel.
 	- Depending on your model, a `DEVELOP MODE` or similar message will appear in the `Apps` panel at the top of the screen.
 4. After that, in `Windows PowerShell`, enter the following command to build the application within a "Docker" image:
 	```
 	docker build -t moonlight-tizen . --no-cache
 	```
-	- This will take a while to complete.
+	- This operation may take a while, please be patient.
  	> Note: If you are running "Docker" on a "Mac" with a silicon chip (M1/M2 etc), then you need to change the first line in the `Dockerfile` to `FROM --platform=linux/amd64 ubuntu:22.04` before building the application to ensure compatibility.
 5. After that, in `Windows PowerShell`, follow the steps below to install the application on your TV:
 	- Enter the following command to run and enter a container:
 	 ```
 	 docker run -it --rm moonlight-tizen
 	 ```
-	- Next, enter the following command to connect to your "Samsung Tizen TV" over "Smart Development Bridge":
+	- Next, enter the following command to connect to your "Samsung Smart TV" over "Smart Development Bridge":
 	 ```
 	 sdb connect YOUR_TV_IP
 	 ```
+   	> Note: Replace `YOUR_TV_IP` with `IP Address` of your TV.
 	- Next, enter the following command to confirm that you are connected, then take note of the "Device ID":
 	 ```
 	 sdb devices
 	 ```
-	 > Note: Just to clarify "Device ID" will be the last column, something like `UE55AU7172UXXH`.
+   	> Note: Just to clarify "Device ID" will be the last column, something like `UE55AU7172UXXH`.
 	- Next, enter the following command to install the package:
 	 ```
-	 tizen install -n Moonlight.wgt -t DEVICE_ID
+	 tizen install -n Moonlight.wgt -t YOUR_DEVICE_ID
 	 ```
-	 > Note: Moonlight should now appear in your `Recent Apps` or similar page on your "Samsung Tizen TV".
+   	> Note: Replace `YOUR_DEVICE_ID` with `Device ID` of your TV.
+ 	- After that, Moonlight should now appear in your `Recent Apps` or similar page on your "Samsung Smart TV".
 	- Next, enter the following command to exit the container:
 	 ```
 	 exit
@@ -60,18 +62,19 @@ Also, you should run "Docker Desktop" before proceeding further and it is also r
 	 ```
 	 docker image rm moonlight-tizen
 	 ```
-	 > Note: At the end you can enter the `exit` command to close the `Windows PowerShell` window.
+   	> Note: At the end you can enter the `exit` command to close the `Windows PowerShell` window.
 6. Disable the "Developer mode" in your "Samsung Smart TV":
 	- Go to the `Apps` panel.
 	- Press `12345` on the remote and a dialog should popup.
 	- Set `Developer mode` to `Off` and then click the `OK` button to close the dialog.
 	- Restart the TV by holding the power button for 2 seconds as instructed by the new dialog popup, then again go to the `Apps` panel.
 	- Depending on your model, a `DEVELOP MODE` or similar message will disappear from the `Apps` panel at the top of the screen.
+7. Now you can launch Moonlight on your TV, then add your host computer and enjoy the high quality streaming experience.
 
 ### Updating
 
 1. Before updating the Moonlight app, you must delete the installed Moonlight app that you already have on your Samsung Smart TV to prevent errors during the update.
-2. Now, whenever you want to install an updated version of Moonlight on your Samsung Smart TV, you need to follow the [Building](https://github.com/ndriqimlahu/moonlight-chrome-tizen-docker#building) instructions in order to successfully update Moonlight on your Samsung Smart TV which has Tizen OS.
+2. Now, whenever you want to install an updated version of Moonlight on your Samsung Smart TV, you need to follow the [Installation](https://github.com/ndriqimlahu/moonlight-chrome-tizen-docker#installation) instructions in order to successfully install the updated version of Moonlight on your Samsung Smart TV.
 
 ## Changelogs
 
