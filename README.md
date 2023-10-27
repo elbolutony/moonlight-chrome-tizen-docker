@@ -76,6 +76,37 @@ Also, you should run "Docker Desktop" before proceeding further and it is also r
 1. Before updating the Moonlight app, you must delete the installed Moonlight app that you already have on your Samsung Smart TV to prevent errors during the update.
 2. Now, whenever you want to install an updated version of Moonlight on your Samsung Smart TV, you need to follow the [Installation](https://github.com/ndriqimlahu/moonlight-chrome-tizen-docker#installation) instructions in order to successfully install the updated version of Moonlight on your Samsung Smart TV.
 
+### Testing
+
+> Note:  FOR DEVELOPERS ONLY.
+1. Fork and clone the `moonlight-chrome-tizen` repository.
+2. Open `Windows PowerShell` or a similar program depending on your OS, then change directory to where you cloned the repository, then use the `Dockerfile` from source code folder, so for example you should enter the following command to go on that path.
+	```
+	cd C:\repo\moonlight-chrome-tizen\
+	```
+3. After that, you can continue the [Installation](https://github.com/ndriqimlahu/moonlight-chrome-tizen-docker#installation) instructions from the third step in order to successfully install the Moonlight patch version on your Samsung Smart TV.
+4. So remember whenever you make changes, add features, fix bugs, and other developments, it is recommended to test on your device first before creating a pull request or pushing an update.
+
+### FAQ
+
+1. How can I find out what TV model I have?
+- Using your Samsung Smart TV remote, follow these steps: `Settings` -> `Support` -> `About This TV`.
+
+2. Which supported controllers can I use on my TV?
+- You can use the most popular Bluetooth or USB-wired controllers: Microsoft Xbox Series X/S controllers, Xbox One controller, Xbox 360 controller, Xbox Elite Wireless controller Series 2, Xbox Adaptive controller, PlayStation DualShock 4 and DualSense controllers, Amazon Luna Wireless controller, NVIDIA Shield controller, Logitech F310, F510 and F710 controllers, PowerA MOGA XP5-X Plus Bluetooth controller, Joytron CYVOX DX.
+
+3. Having trouble with unsupported controllers on my TV?
+- If you use any Bluetooth or USB 2.0 game controllers other than those mentioned in the previous question, then unfortunately you may encounter problems such as unresponsive Guide and D-PAD buttons, Y and X buttons switching, vibration rumble motor which does not work and other controller issues.
+
+4. How do I connect my Bluetooth controller to my TV?
+- Using your Samsung Smart TV remote, follow these steps: `Settings` -> `Connection` -> `External Device Manager` -> `Input Device Manager` -> `Bluetooth Device List` -> Then pair your controller.
+
+5. How can I test the functionality of the controller on my TV?
+- To test the functionality of the controller on Samsung Smart TV, you can use the [GamepadChecker](https://developer.samsung.com/smarttv/accessory/gamepad.html) application, please visit the above link and follow all the instructions in the "Testing Gamepad Functionality" section to download and install the app on your Samsung Smart TV.
+
+6. How can I pin the Moonlight app icon to the home screen for easy access?
+- Once you install the Moonlight app, hover over the app icon and long press the "OK" button on your TV remote. Then select `Add to Home`. Use the cursor to move the icon where you want it to be in the app launcher row on the home screen.
+
 ## Changelogs
 
 See the [CHANGELOG](https://github.com/ndriqimlahu/moonlight-chrome-tizen/blob/samsung_wasm/CHANGELOG.md) file for more information about the changes for each version of this project.
